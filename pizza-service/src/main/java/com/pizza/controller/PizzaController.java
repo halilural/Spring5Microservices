@@ -7,7 +7,7 @@ import com.pizza.dto.PizzaDto;
 import com.pizza.model.Ingredient;
 import com.pizza.model.Pizza;
 import com.pizza.service.PizzaService;
-import com.spring5microservices.common.dto.ErrorResponseDto;
+import com.common.dto.ErrorResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

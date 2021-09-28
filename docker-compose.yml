@@ -1,0 +1,96 @@
+version: '2'
+
+services:
+
+  common-server:
+    image: springcommunity/common
+    container_name: common-service
+    mem_limit: 512M
+    ports:
+      - 8889:8889
+
+  config-server:
+    image: springcommunity/config-server
+    container_name: config-server
+    mem_limit: 512M
+    ports:
+      - 8888:8888
+
+  registry-server:
+    image: springcommunity/registry-server
+    container_name: registry-server
+    mem_limit: 512M
+    depends_on:
+      - config-server
+    entrypoint: [ "./dockerize","-wait=tcp://config-server:8888","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher" ]
+    ports:
+      - 8761:8761
+
+  gateway-server:
+    image: springcommunity/gateway-server
+    container_name: gateway-server
+    mem_limit: 512M
+    depends_on:
+      - config-server
+      - registry-server
+    entrypoint: [ "./dockerize","-wait=tcp://registry-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher" ]
+    ports:
+      - 8080:8080
+
+  order-service:
+    image: springcommunity/order-service
+    container_name: order-service
+    mem_limit: 512M
+    depends_on:
+      - config-server
+      - registry-server
+    entrypoint: [ "./dockerize","-wait=tcp://registry-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher" ]
+    ports:
+      - 8085:8085
+
+  pizza-service:
+    image: springcommunity/pizza-service
+    container_name: pizza-service
+    mem_limit: 512M
+    depends_on:
+      - config-server
+      - registry-server
+    entrypoint: [ "./dockerize","-wait=tcp://registry-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher" ]
+    ports:
+      - 8084:8084
+
+  security-jwt-service:
+    image: springcommunity/security-jwt-service
+    container_name: security-jwt-service
+    mem_limit: 512M
+    depends_on:
+      - config-server
+      - registry-server
+    entrypoint: [ "./dockerize","-wait=tcp://registry-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher" ]
+    ports:
+      - 8086:8086
+
+  tracing-server:
+    image: openzipkin/zipkin
+    container_name: tracing-server
+    mem_limit: 512M
+    environment:
+      - JAVA_OPTS=-XX:+UnlockExperimentalVMOptions -Djava.security.egd=file:/dev/./urandom
+    ports:
+      - 9411:9411
+
+  ## Grafana / Prometheus
+
+  grafana-server:
+    build: ./docker/grafana
+    container_name: grafana-server
+    mem_limit: 256M
+    ports:
+      - 3000:3000
+
+  prometheus-server:
+    build: ./docker/prometheus
+    container_name: prometheus-server
+    mem_limit: 256M
+    ports:
+      - 9091:9090

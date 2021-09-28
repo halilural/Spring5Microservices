@@ -16,7 +16,7 @@ import com.nimbusds.jose.crypto.DirectEncrypter;
 import com.nimbusds.jose.util.Base64URL;
 import com.nimbusds.jose.util.JSONObjectUtils;
 import com.security.jwt.exception.TokenInvalidException;
-import com.spring5microservices.common.exception.TokenExpiredException;
+import com.common.exception.TokenExpiredException;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import net.minidev.json.JSONObject;

@@ -1,10 +1,10 @@
 package com.pizza.configuration.rest;
 
-import com.spring5microservices.common.dto.ErrorResponseDto;
-import com.spring5microservices.common.enums.RestApiErrorCode;
-import com.spring5microservices.common.exception.TokenExpiredException;
-import com.spring5microservices.common.exception.UnauthorizedException;
-import com.spring5microservices.common.util.JsonUtil;
+import com.common.dto.ErrorResponseDto;
+import com.common.enums.RestApiErrorCode;
+import com.common.exception.TokenExpiredException;
+import com.common.exception.UnauthorizedException;
+import com.common.util.JsonUtil;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.core.Ordered;
@@ -23,10 +23,10 @@ import javax.validation.ConstraintViolationException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import static com.spring5microservices.common.enums.ExtendedHttpStatus.TOKEN_EXPIRED;
-import static com.spring5microservices.common.enums.RestApiErrorCode.INTERNAL;
-import static com.spring5microservices.common.enums.RestApiErrorCode.SECURITY;
-import static com.spring5microservices.common.enums.RestApiErrorCode.VALIDATION;
+import static com.common.enums.ExtendedHttpStatus.TOKEN_EXPIRED;
+import static com.common.enums.RestApiErrorCode.INTERNAL;
+import static com.common.enums.RestApiErrorCode.SECURITY;
+import static com.common.enums.RestApiErrorCode.VALIDATION;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;

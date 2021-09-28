@@ -29,7 +29,7 @@ public class Constants {
 
         // External path
         public static final class EXTERNAL {
-            public static final String COMMON = "com.spring5microservices.common";
+            public static final String COMMON = "com.common";
         }
     }
 

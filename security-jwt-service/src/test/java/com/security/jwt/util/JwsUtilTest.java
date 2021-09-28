@@ -2,7 +2,7 @@ package com.security.jwt.util;
 
 import com.nimbusds.jose.JWSAlgorithm;
 import com.security.jwt.exception.TokenInvalidException;
-import com.spring5microservices.common.exception.TokenExpiredException;
+import com.common.exception.TokenExpiredException;
 import net.minidev.json.JSONArray;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

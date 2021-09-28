@@ -8,8 +8,8 @@ import com.security.jwt.enums.SignatureAlgorithmEnum;
 import com.security.jwt.model.JwtClientDetails;
 import com.security.jwt.application.spring5microservices.model.Role;
 import com.security.jwt.application.spring5microservices.model.User;
-import com.spring5microservices.common.dto.AuthenticationInformationDto;
-import com.spring5microservices.common.dto.UsernameAuthoritiesDto;
+import com.common.dto.AuthenticationInformationDto;
+import com.common.dto.UsernameAuthoritiesDto;
 import lombok.experimental.UtilityClass;
 
 import java.util.HashMap;

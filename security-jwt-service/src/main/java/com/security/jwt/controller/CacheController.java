@@ -3,7 +3,7 @@ package com.security.jwt.controller;
 import com.security.jwt.configuration.rest.RestRoutes;
 import com.security.jwt.model.JwtClientDetails;
 import com.security.jwt.service.cache.JwtClientDetailsCacheService;
-import com.spring5microservices.common.dto.ErrorResponseDto;
+import com.common.dto.ErrorResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

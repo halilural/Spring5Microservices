@@ -1,7 +1,7 @@
 package com.order.configuration.rest;
 
-import com.spring5microservices.common.dto.ErrorResponseDto;
-import com.spring5microservices.common.enums.RestApiErrorCode;
+import com.common.dto.ErrorResponseDto;
+import com.common.enums.RestApiErrorCode;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -14,9 +14,9 @@ import org.springframework.web.server.ServerWebExchange;
 import javax.validation.ConstraintViolationException;
 import java.util.List;
 
-import static com.spring5microservices.common.enums.RestApiErrorCode.INTERNAL;
-import static com.spring5microservices.common.enums.RestApiErrorCode.SECURITY;
-import static com.spring5microservices.common.enums.RestApiErrorCode.VALIDATION;
+import static com.common.enums.RestApiErrorCode.INTERNAL;
+import static com.common.enums.RestApiErrorCode.SECURITY;
+import static com.common.enums.RestApiErrorCode.VALIDATION;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;

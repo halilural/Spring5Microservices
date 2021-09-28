@@ -1,10 +1,10 @@
 package com.pizza.configuration.security;
 
 import com.pizza.service.cache.UserBlacklistCacheService;
-import com.spring5microservices.common.dto.UsernameAuthoritiesDto;
-import com.spring5microservices.common.enums.ExtendedHttpStatus;
-import com.spring5microservices.common.exception.TokenExpiredException;
-import com.spring5microservices.common.exception.UnauthorizedException;
+import com.common.dto.UsernameAuthoritiesDto;
+import com.common.enums.ExtendedHttpStatus;
+import com.common.exception.TokenExpiredException;
+import com.common.exception.UnauthorizedException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

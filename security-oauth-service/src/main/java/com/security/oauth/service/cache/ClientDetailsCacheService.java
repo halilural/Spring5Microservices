@@ -1,7 +1,7 @@
 package com.security.oauth.service.cache;
 
 import com.security.oauth.configuration.cache.CacheConfiguration;
-import com.spring5microservices.common.service.CacheService;
+import com.common.service.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.oauth2.provider.ClientDetails;

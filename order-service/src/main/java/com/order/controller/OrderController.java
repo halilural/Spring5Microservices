@@ -6,6 +6,7 @@ import com.order.configuration.rest.RestRoutes;
 import com.order.dto.OrderDto;
 import com.order.dto.OrderLineDto;
 import com.order.model.Order;
+import com.order.model.OrderLine;
 import com.order.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

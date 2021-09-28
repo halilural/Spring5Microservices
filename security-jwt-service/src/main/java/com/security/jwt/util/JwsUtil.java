@@ -16,7 +16,7 @@ import com.nimbusds.jose.util.JSONObjectUtils;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import com.security.jwt.exception.TokenInvalidException;
-import com.spring5microservices.common.exception.TokenExpiredException;
+import com.common.exception.TokenExpiredException;
 import lombok.extern.log4j.Log4j2;
 import net.minidev.json.JSONObject;
 import org.springframework.stereotype.Component;

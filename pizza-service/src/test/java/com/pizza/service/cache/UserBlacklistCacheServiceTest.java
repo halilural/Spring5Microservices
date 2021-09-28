@@ -1,7 +1,7 @@
 package com.pizza.service.cache;
 
 import com.pizza.configuration.cache.CacheConfiguration;
-import com.spring5microservices.common.service.CacheService;
+import com.common.service.CacheService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

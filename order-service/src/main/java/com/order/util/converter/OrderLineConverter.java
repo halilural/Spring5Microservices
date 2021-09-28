@@ -1,9 +1,8 @@
 package com.order.util.converter;
 
+import com.common.converter.BaseConverter;
 import com.order.dto.OrderLineDto;
-import com.order.model.Order;
 import com.order.model.OrderLine;
-import com.spring5microservices.common.converter.BaseConverter;
 import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -28,12 +27,12 @@ public interface OrderLineConverter extends BaseConverter<OrderLine, OrderLineDt
      * Create a new {@link OrderLine} which properties match with the given {@link OrderLineDto}
      *
      * @param orderLineDto {@link OrderLineDto} with the "source information"
-     * @param orderId      {@link Order#id} of the given dto
+     * @param orderId      {@link Integer} of the given dto
      * @return {@link OrderLine}
      */
     @Mappings({
-            @Mapping(source = "orderLineDto.pizza.id", target = "pizzaId"),
-            @Mapping(source = "orderId", target = "orderId")})
+        @Mapping(source = "orderLineDto.pizza.id", target = "pizzaId"),
+        @Mapping(source = "orderId", target = "orderId")})
     OrderLine fromDtoToModel(final OrderLineDto orderLineDto, Integer orderId);
 
     /**
@@ -54,7 +53,7 @@ public interface OrderLineConverter extends BaseConverter<OrderLine, OrderLineDt
      */
     default Optional<OrderLine> fromDtoToOptionalModel(final OrderLineDto orderLineDto, Integer orderId) {
         return ofNullable(orderLineDto)
-                       .map(dto -> this.fromDtoToModel(dto, orderId));
+            .map(dto -> this.fromDtoToModel(dto, orderId));
     }
 
     /**
@@ -62,17 +61,17 @@ public interface OrderLineConverter extends BaseConverter<OrderLine, OrderLineDt
      * {@link Collection} of {@link OrderLineDto}
      *
      * @param orderLineDtos {@link Collection} of {@link OrderLineDto} with the "source information"
-     * @param orderId       {@link Order#id} of the given dtos
+     * @param orderId       of the given dtos
      * @return {@link List} of {@link OrderLine}
      */
     default List<OrderLine> fromDtosToModels(final Collection<OrderLineDto> orderLineDtos, Integer orderId) {
         return ofNullable(orderLineDtos)
-                .map(dtos -> {
-                    List<OrderLine> orderLines = new ArrayList<>();
-                    dtos.forEach(dto -> orderLines.add(this.fromDtoToModel(dto, orderId)));
-                    return orderLines;
-                })
-                .orElseGet(ArrayList::new);
+            .map(dtos -> {
+                List<OrderLine> orderLines = new ArrayList<>();
+                dtos.forEach(dto -> orderLines.add(this.fromDtoToModel(dto, orderId)));
+                return orderLines;
+            })
+            .orElseGet(ArrayList::new);
     }
 
     /**
@@ -97,21 +96,18 @@ abstract class OrderLineConverterDecorator implements OrderLineConverter {
     private OrderLineConverter orderLineConverter;
 
     /**
-     *    Create a new {@link OrderLine} which properties match with the given {@link OrderLineDto}. The difference
+     * Create a new {@link OrderLine} which properties match with the given {@link OrderLineDto}. The difference
      * with the "default behaviour" is that only if the given {@link OrderLineDto} is not null, we will create a new one.
      *
-     * @param orderLineDto
-     *    {@link OrderLineDto} with the "source information"
-     * @param orderId
-     *    {@link Order#id} of the given dto
-     *
+     * @param orderLineDto {@link OrderLineDto} with the "source information"
+     * @param orderId      of the given dto
      * @return {@link OrderLine}
      */
     @Override
     public OrderLine fromDtoToModel(final OrderLineDto orderLineDto, Integer orderId) {
         return ofNullable(orderLineDto)
-                       .map(dto -> orderLineConverter.fromDtoToModel(dto, orderId))
-                       .orElse(null);
+            .map(dto -> orderLineConverter.fromDtoToModel(dto, orderId))
+            .orElse(null);
     }
 
 }

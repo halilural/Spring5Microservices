@@ -1,7 +1,7 @@
 package com.pizza.service.cache;
 
 import com.pizza.configuration.cache.CacheConfiguration;
-import com.spring5microservices.common.service.CacheService;
+import com.common.service.CacheService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;

@@ -3,10 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
-        <relativePath/>
+        <groupId>com.microservices</groupId>
+        <version>1.0.0</version>
+        <artifactId>parent</artifactId>
     </parent>
     <groupId>com.security.oauth.service</groupId>
     <artifactId>security-oauth-service</artifactId>
@@ -15,13 +14,14 @@
     <description>Service related with security functionality based on Oauth2 with Jwt</description>
 
     <properties>
+        <java.version>1.11</java.version>
         <cache2k.version>1.2.4.Final</cache2k.version>
         <hamcrest.version>2.1</hamcrest.version>
-        <java.version>1.10</java.version>
-        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
         <spring-security-jwt.version>1.0.10.RELEASE</spring-security-jwt.version>
         <spring-security-oauth2.version>2.3.6.RELEASE</spring-security-oauth2.version>
-        <spring5-microservices-common.version>0.0.2</spring5-microservices-common.version>
+        <common.version>0.0.2</common.version>
+        <docker.image.exposed.port>8889</docker.image.exposed.port>
+        <docker.image.dockerfile.dir>${basedir}/../docker</docker.image.dockerfile.dir>
     </properties>
 
     <dependencies>
@@ -70,9 +70,9 @@
         </dependency>
         <!-- Spring5 microservices common -->
         <dependency>
-            <groupId>com.spring5microservices.common</groupId>
-            <artifactId>spring5-microservices-common</artifactId>
-            <version>${spring5-microservices-common.version}</version>
+            <groupId>com.common</groupId>
+            <artifactId>common</artifactId>
+            <version>${common.version}</version>
         </dependency>
         <!-- Database related -->
         <dependency>
@@ -139,25 +139,19 @@
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <profiles>
+        <profile>
+            <id>buildDocker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${docker.plugin.version}</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

@@ -3,7 +3,7 @@ package com.pizza.controller;
 import com.pizza.annotation.RoleAdmin;
 import com.pizza.configuration.rest.RestRoutes;
 import com.pizza.service.cache.UserBlacklistCacheService;
-import com.spring5microservices.common.dto.ErrorResponseDto;
+import com.common.dto.ErrorResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

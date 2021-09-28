@@ -1,5 +1,6 @@
 server:
-  port: 8080
+  port: 8084
+
 
 eureka:
   client:
@@ -23,3 +24,4 @@ springdoc:
   api-docs:
     # Api docs path properties
     path: /pizza/v2/api-docs
+

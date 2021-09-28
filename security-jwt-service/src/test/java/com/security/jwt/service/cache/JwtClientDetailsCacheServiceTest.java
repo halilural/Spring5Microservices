@@ -2,7 +2,7 @@ package com.security.jwt.service.cache;
 
 import com.security.jwt.configuration.cache.CacheConfiguration;
 import com.security.jwt.model.JwtClientDetails;
-import com.spring5microservices.common.service.CacheService;
+import com.common.service.CacheService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

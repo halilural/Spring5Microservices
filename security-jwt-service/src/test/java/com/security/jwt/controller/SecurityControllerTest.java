@@ -4,9 +4,9 @@ import com.security.jwt.SecurityJwtServiceApplication;
 import com.security.jwt.configuration.rest.RestRoutes;
 import com.security.jwt.dto.AuthenticationRequestDto;
 import com.security.jwt.service.SecurityService;
-import com.spring5microservices.common.dto.AuthenticationInformationDto;
-import com.spring5microservices.common.dto.ErrorResponseDto;
-import com.spring5microservices.common.dto.UsernameAuthoritiesDto;
+import com.common.dto.AuthenticationInformationDto;
+import com.common.dto.ErrorResponseDto;
+import com.common.dto.UsernameAuthoritiesDto;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -32,7 +32,7 @@ import java.util.stream.Stream;
 import static com.security.jwt.TestDataFactory.buildAuthenticationRequest;
 import static com.security.jwt.TestDataFactory.buildDefaultAuthenticationInformation;
 import static com.security.jwt.TestDataFactory.buildUsernameAuthorities;
-import static com.spring5microservices.common.enums.RestApiErrorCode.VALIDATION;
+import static com.common.enums.RestApiErrorCode.VALIDATION;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
@@ -259,7 +259,7 @@ public class SecurityControllerTest {
         verifyNoInteractions(mockSecurityService);
     }
 
-    
+
     @Test
     @DisplayName("authorizationInformation: when given authentication request verifies the validations then the suitable Http code is returned")
     @WithMockUser(username = "ItDoesNotCare")

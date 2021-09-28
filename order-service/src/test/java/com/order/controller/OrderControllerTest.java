@@ -7,7 +7,7 @@ import com.order.dto.OrderDto;
 import com.order.dto.OrderLineDto;
 import com.order.dto.PizzaDto;
 import com.order.service.OrderService;
-import com.spring5microservices.common.dto.ErrorResponseDto;
+import com.common.dto.ErrorResponseDto;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 
 import static com.order.TestUtil.fromJson;
 import static com.order.TestUtil.toJson;
-import static com.spring5microservices.common.enums.RestApiErrorCode.VALIDATION;
+import static com.common.enums.RestApiErrorCode.VALIDATION;
 import static java.util.Arrays.asList;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
